@@ -26,14 +26,14 @@ int perform_oper(int op1,char op,int op2)
 {
 	switch(op)
 	{
-		case '+': return op2+op1;
-		case '-': return op2-op1;
-		case '*': return op2*op1;
-		case '/': return op2/op1;
-		case '^': return op2^op1;
+		case '+':return op2+op1;
+		case '-':return op2-op1;
+		case '*':return op2*op1;
+		case '/':return op2/op1;
+		case '^':return op2^op1;
 	}
 }
-int isoper(char ch)	
+int isoper(char ch)
 {
 	switch(ch)
 	{
@@ -46,7 +46,7 @@ int isoper(char ch)
 		default: return 0;
 	}
 }
-int post_eval(char *post)	
+int post_eval(char * post)
 {
 	int i,val=0,st[100],top=-1,op1,op2,res;
 	for(i=0;post[i]!='\0';i++)
@@ -60,7 +60,7 @@ int post_eval(char *post)
 		}
 		else
 		{
-			if(post[i]>=48 && post[i]<=57)
+			if(post[i]>=48 && post[i]<=57)//53>=48 and 53<=57
 			{
 				val=val*10+post[i]-'0';
 			}
@@ -68,18 +68,17 @@ int post_eval(char *post)
 			{
 				st[++top]=val;
 				val=0;
-			}
+			}	
 		}
 	}
 	return st[0];
 }
-	
 int main()
 {
 	char post[100];
 	int res;
-	scanf("%[^\n]s",post); // 4 5 2 3 * - * 2 3 * +   
+	scanf("%[^\n]s",post);//4 5 2 3 * - * 2 3 * +
 	res=post_eval(post);
-	printf("%d",res);
+	printf("%d ",res);
 }
 
