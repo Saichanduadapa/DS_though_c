@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 int st[100],size,top=-1;
 void push(int val)
